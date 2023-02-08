@@ -19,8 +19,7 @@ def lambda_handler(event, context):
     objects = s3.list_objects(Bucket='anipoevents')  # get all the objects in the Bucket
     print(len(objects["Contents"]))
 
-    for object in objects[
-        "Contents"]:  # iterate over all the objects and check if the modified date pass 5 days if its is del it.
+    for object in objects["Contents"]:  # iterate over all the objects and check if the modified date pass 5 days if its is del it.
         print("entered for loop")
         if object["LastModified"] <= date_of_5_days:
             print(object["Key"])
